@@ -23,7 +23,7 @@
       "nick": "@fuck_aleksander",
       "description": "Самый крутой деф.",
       "url": "https://t.me/fuck_aleksander",
-      "avatar": "👤"
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/alex.jpg"
     },
     {
       "name": "Андрей",
@@ -60,14 +60,14 @@
       "nick": "@maria",
       "description": "Тестировщик, ищет баги быстрее, чем я их пишу. Обожает котиков.",
       "url": "https://t.me/maria",
-      "avatar": "👩"
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/mashko.png"
     },
     {
       "name": "Екатерина Мезулина",
       "nick": "@ekaterina",
       "description": "DevOps-инженер. Помогает с деплоем и докером. Увлекается фотографией.",
       "url": "https://t.me/ekaterina",
-      "avatar": "👩"
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/kate.jpg"
     },
     {
       "name": "Ольга",
