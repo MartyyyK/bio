@@ -23,14 +23,14 @@
       "nick": "@fuck_aleksander",
       "description": "Самый крутой деф.",
       "url": "https://t.me/fuck_aleksander",
-      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/alex.jpg"
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/no_ava.png"
     },
     {
       "name": "Андрей",
       "nick": "@Fgtho5",
       "description": "Крутецкая круть, бравлер🥵",
       "url": "https://t.me/Fgtho5",
-      "avatar": "👤"
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/andrewm.png"
     },
     {
       "name": "Максим",
@@ -47,27 +47,20 @@
       "avatar": "👤"
     }
   ],
-  "girlfriends": [
+  "girlfriends": {
     {
-      "name": "Маша",
-      "nick": "@macy000p",
-      "description": "По имени уже и так понятно, шлюшка.",
-      "url": "https://t.me/macy000p",
-      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/mashko.png"
+      "name": "Полинчикс",
+      "nick": "@eww_228_1",
+      "description": "Ван лав.",
+      "url": "https://t.me/eww_228_1",
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/onelove.png"
     },
     {
-      "name": "Мария",
-      "nick": "@maria",
-      "description": "Тестировщик, ищет баги быстрее, чем я их пишу. Обожает котиков.",
-      "url": "https://t.me/maria",
-      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/mashko.png"
-    },
-    {
-      "name": "Екатерина Мезулина",
-      "nick": "@ekaterina",
-      "description": "DevOps-инженер. Помогает с деплоем и докером. Увлекается фотографией.",
-      "url": "https://t.me/ekaterina",
-      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/kate.jpg"
+      "name": "Ангелочкэ",
+      "nick": "@AnglK_3",
+      "description": "Очень опасная женщина.",
+      "url": "https://t.me/AnglK_3",
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/angelochke.png"
     },
     {
       "name": "Ольга",
@@ -76,5 +69,12 @@
       "url": "https://t.me/olga",
       "avatar": "👩"
     }
+    {
+      "name": "Маша",
+      "nick": "@macy000p",
+      "description": "По имени уже и так понятно, шлюшка.",
+      "url": "https://t.me/macy000p",
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/mashko.png"
+    },
   ]
 }
