@@ -1,0 +1,80 @@
+{
+  "about": "Привет!<br> Я Мартик, занимаюсь разработкой на Python.<br> Немного FrontEnd и BackEnd разработчик.<br> Здесь собраны мои проекты и ссылки.",
+  "projects": [
+    {
+      "name": "Hisa Userbot",
+      "description": "Hisa - модульный Telegram юзербот с поддержкой плагинов и полной кастомизацией.",
+      "url": "https://t.me/Hisa_ub"
+    },
+    {
+      "name": "MRTKsm",
+      "description": "MRTKsm - утилита для создания и управления Minecraft серверами для Termux.",
+      "url": "https://t.me/MartyyyKsm"
+    },
+    {
+      "name": "Тут пока пусто",
+      "description": "Скоро будут ещё проекты.",
+      "url": ""
+    }
+  ],
+  "friends": [
+    {
+      "name": "Александр",
+      "nick": "@fuck_aleksander",
+      "description": "Самый крутой деф.",
+      "url": "https://t.me/fuck_aleksander",
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/alex.jpg"
+    },
+    {
+      "name": "Андрей",
+      "nick": "@Fgtho5",
+      "description": "Крутецкая круть, бравлер🥵",
+      "url": "https://t.me/Fgtho5",
+      "avatar": "👤"
+    },
+    {
+      "name": "Максим",
+      "nick": "@maxim",
+      "description": "Системный администратор и просто хороший человек. Помогает с серверами.",
+      "url": "https://t.me/maxim",
+      "avatar": "👤"
+    },
+    {
+      "name": "Иван",
+      "nick": "@ivan",
+      "description": "Специалист по базам данных. Любит научную фантастику.",
+      "url": "https://t.me/ivan",
+      "avatar": "👤"
+    }
+  ],
+  "girlfriends": [
+    {
+      "name": "Маша",
+      "nick": "@macy000p",
+      "description": "По имени уже и так понятно, шлюшка.",
+      "url": "https://t.me/macy000p",
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/mashko.png"
+    },
+    {
+      "name": "Мария",
+      "nick": "@maria",
+      "description": "Тестировщик, ищет баги быстрее, чем я их пишу. Обожает котиков.",
+      "url": "https://t.me/maria",
+      "avatar": "👩"
+    },
+    {
+      "name": "Екатерина Мезулина",
+      "nick": "@ekaterina",
+      "description": "DevOps-инженер. Помогает с деплоем и докером. Увлекается фотографией.",
+      "url": "https://t.me/ekaterina",
+      "avatar": "https://raw.githubusercontent.com/MartyyyK/bio/main/avatars/kate.jpg"
+    },
+    {
+      "name": "Ольга",
+      "nick": "@olga",
+      "description": "Продуктовый менеджер. Знает, как превратить идею в работающий продукт.",
+      "url": "https://t.me/olga",
+      "avatar": "👩"
+    }
+  ]
+}
