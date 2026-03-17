@@ -79,10 +79,6 @@
         .project-btn i { font-size:1.2rem; color:#5064ff; transition:color 0.2s; }
         .project-btn:hover { background:rgba(80,100,255,0.15); border-color:rgba(80,100,255,0.4); transform:translateY(-3px); box-shadow:0 15px 25px -8px #5064ff40; }
         .project-btn:hover i { color:#ffffff; }
-        .order-section { margin-top:2rem; text-align:center; }
-        .order-btn { background:linear-gradient(135deg,#5064ff,#7a4cff); border:none; border-radius:40px; padding:1rem 2rem; color:white; font-weight:600; font-size:1.1rem; display:inline-flex; align-items:center; gap:0.8rem; cursor:pointer; transition:all 0.2s; box-shadow:0 15px 30px -10px #5064ff; border:1px solid rgba(255,255,255,0.2); }
-        .order-btn i { font-size:1.3rem; }
-        .order-btn:hover { transform:translateY(-3px); box-shadow:0 20px 35px -8px #5064ff; background:linear-gradient(135deg,#6074ff,#8a5cff); }
         .modal-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(5px); display:flex; align-items:center; justify-content:center; z-index:1000; opacity:0; visibility:hidden; transition:opacity 0.3s, visibility 0.3s; }
         .modal-overlay.active { opacity:1; visibility:visible; }
         .modal { background:rgba(20,22,32,0.95); border:1px solid rgba(80,100,255,0.3); border-radius:32px; max-width:400px; width:90%; padding:2rem; box-shadow:0 30px 60px -15px rgba(0,0,0,0.8), 0 0 0 1px rgba(80,100,255,0.3) inset; transform:scale(0.9); transition:transform 0.3s; }
@@ -97,7 +93,6 @@
         .modal-btn.goto { background:#5064ff; color:white; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; border:1px solid #5064ff; }
         .modal-btn.goto:hover { background:#3a4fd0; transform:translateY(-2px); box-shadow:0 8px 15px -5px #5064ff; }
         .modal-btn.goto i { font-size:0.9rem; }
-        .order-modal .modal { max-width:450px; }
         .form-group { margin-bottom:1.2rem; }
         .form-group label { display:block; margin-bottom:0.4rem; color:#b0b8d0; font-size:0.9rem; }
         .form-group input, .form-group textarea { width:100%; background:rgba(10,12,20,0.7); border:1px solid rgba(80,100,255,0.2); border-radius:20px; padding:0.8rem 1.2rem; color:white; font-family:inherit; font-size:1rem; outline:none; transition:border 0.2s; }
@@ -110,46 +105,11 @@
         .scroll-animation { opacity:0; transform:translateY(30px); transition:opacity 0.8s,transform 0.8s; }
         .scroll-animation.visible { opacity:1; transform:translateY(0); }
         @media (max-width:500px) { .card { padding:1.8rem 1.2rem; } .top-buttons { flex-direction:column; } .projects-grid { grid-template-columns:1fr; } .friends-grid { grid-template-columns:1fr; } .tabs { flex-direction:column; align-items:stretch; } }
-        .snow-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .page-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #141414;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.3s, visibility 0.3s;
-        }
-        .page-loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-top-color: #5064ff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        .snow-canvas { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
+        .page-loader { position:fixed; top:0; left:0; width:100%; height:100%; background-color:#141414; display:flex; align-items:center; justify-content:center; z-index:10000; opacity:1; visibility:visible; transition:opacity 0.3s, visibility 0.3s; }
+        .page-loader.hidden { opacity:0; visibility:hidden; }
+        .loader-spinner { width:50px; height:50px; border:3px solid rgba(255,255,255,0.1); border-top-color:#5064ff; border-radius:50%; animation:spin 1s linear infinite; }
+        @keyframes spin { to { transform:rotate(360deg); } }
     </style>
 </head>
 <body>
@@ -168,9 +128,9 @@
             <a href="https://t.me/MartyyyK" target="_blank" rel="noopener" class="btn">
                 <i class="fab fa-telegram-plane"></i> Телеграм
             </a>
-            <button class="btn" id="spamBtn">
-                <i class="fab fa-telegram-plane"></i> Спам-блок?
-            </button>
+            <a href="https://t.me/bio_MartyyyK" target="_blank" rel="noopener" class="btn">
+                <i class="fab fa-telegram-plane"></i> Телеграм био
+            </a>
         </div>
 
         <div class="tabs">
@@ -186,12 +146,6 @@
 
             <h2 class="section-title"><i class="fas fa-folder-open"></i> Мои работы</h2>
             <div class="projects-grid" id="projects-grid"></div>
-
-            <div class="order-section">
-                <button class="order-btn" id="orderBtn">
-                    <i class="fab fa-python"></i> Заказать Python проект
-                </button>
-            </div>
         </div>
 
         <div id="tab-extra" class="tab-content">
@@ -236,72 +190,22 @@
         </div>
     </div>
 
-    <div class="modal-overlay" id="orderModalOverlay">
-        <div class="modal order-modal">
-            <h3><i class="fab fa-python"></i> Заказ Python проекта</h3>
-            <form id="orderForm">
-                <div class="form-group">
-                    <label for="name">Ваше имя (необязательно)</label>
-                    <input type="text" id="name" name="name" placeholder="Как к вам обращаться">
-                </div>
-                <div class="form-group">
-                    <label for="contact">Контакт для связи (телеграм/email) *</label>
-                    <input type="text" id="contact" name="contact" placeholder="@username или email" required>
-                </div>
-                <div class="form-group">
-                    <label for="query">Опишите задачу *</label>
-                    <textarea id="query" name="query" placeholder="Что нужно сделать?" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Отправить заказ</button>
-                <div class="form-status" id="formStatus"></div>
-            </form>
-            <div style="margin-top: 1rem; text-align: right;">
-                <button class="modal-btn close" id="closeOrderModalBtn">Закрыть</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="spamModalOverlay">
-        <div class="modal order-modal">
-            <h3><i class="fas fa-shield-alt"></i> Связь</h3>
-            <form id="spamForm">
-                <div class="form-group">
-                    <label for="spamContact">Контакт (телеграм/email) *</label>
-                    <input type="text" id="spamContact" placeholder="@username или email" required>
-                </div>
-                <div class="form-group">
-                    <label for="spamMessage">Сообщение *</label>
-                    <textarea id="spamMessage" placeholder="Что хотите написать?" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Отправить</button>
-                <div class="form-status" id="spamFormStatus"></div>
-            </form>
-            <div style="margin-top: 1rem; text-align: right;">
-                <button class="modal-btn close" id="closeSpamModalBtn">Закрыть</button>
-            </div>
-        </div>
-    </div>
-
     <script>
         (function() {
             'use strict';
-
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', initSnow);
             } else {
                 initSnow();
             }
-
             function initSnow() {
                 const canvas = document.createElement('canvas');
                 canvas.id = 'snowCanvas';
                 canvas.className = 'snow-canvas';
                 document.body.appendChild(canvas);
-
                 const ctx = canvas.getContext('2d');
                 let animationId;
                 let particles = [];
-
                 const config = {
                     maxParticles: 50, 
                     minSize: 2,
@@ -312,25 +216,16 @@
                     maxOpacity: 0.85,
                     windStrength: 0.4
                 };
-
-                const colors = [
-                    '#f2a603',
-                    '#f2a603',
-                    '#e69500',
-                    '#ffb31a'
-                ];
-
+                const colors = ['#f2a603','#f2a603','#e69500','#ffb31a'];
                 function resizeCanvas() {
                     canvas.width = window.innerWidth;
                     canvas.height = window.innerHeight;
                 }
-
                 class Particle {
                     constructor() {
                         this.reset();
                         this.y = Math.random() * canvas.height;
                     }
-
                     reset() {
                         this.x = Math.random() * canvas.width;
                         this.y = -20;
@@ -342,27 +237,21 @@
                         this.rotationSpeed = (Math.random() - 0.5) * 0.08;
                         this.color = colors[Math.floor(Math.random() * colors.length)];
                     }
-
                     update() {
                         this.y += this.speed;
                         this.x += this.wind + Math.sin(this.y * 0.01) * 0.5;
                         this.rotation += this.rotationSpeed;
-
                         if (this.y > canvas.height + 20 || this.x < -20 || this.x > canvas.width + 20) {
                             this.reset();
                         }
                     }
-
                     draw() {
                         ctx.save();
                         ctx.translate(this.x, this.y);
                         ctx.rotate(this.rotation);
                         ctx.globalAlpha = this.opacity;
-
                         const s = this.size;
-
                         ctx.beginPath();
-
                         ctx.moveTo(0, -s);
                         ctx.bezierCurveTo(s * 0.15, -s * 0.6, s * 0.15, -s * 0.4, s * 0.5, -s * 0.15);
                         ctx.bezierCurveTo(s * 0.6, -s * 0.15, s * 0.8, -s * 0.1, s, 0);
@@ -372,45 +261,35 @@
                         ctx.bezierCurveTo(-s * 0.6, s * 0.15, -s * 0.8, s * 0.1, -s, 0);
                         ctx.bezierCurveTo(-s * 0.8, -s * 0.1, -s * 0.6, -s * 0.15, -s * 0.5, -s * 0.15);
                         ctx.bezierCurveTo(-s * 0.15, -s * 0.4, -s * 0.15, -s * 0.6, 0, -s);
-
                         ctx.closePath();
-
                         const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, s);
                         gradient.addColorStop(0, this.color);
                         gradient.addColorStop(0.7, this.color);
                         gradient.addColorStop(1, 'rgba(242, 166, 3, 0.3)');
-
                         ctx.fillStyle = gradient;
                         ctx.fill();
-
                         ctx.globalAlpha = this.opacity * 0.4;
                         ctx.beginPath();
                         ctx.arc(-s * 0.2, -s * 0.3, s * 0.15, 0, Math.PI * 2);
                         ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
                         ctx.fill();
-
                         ctx.restore();
                     }
                 }
-
                 function createParticles() {
                     particles = [];
                     for (let i = 0; i < config.maxParticles; i++) {
                         particles.push(new Particle());
                     }
                 }
-
                 function animate() {
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
                     for (let particle of particles) {
                         particle.update();
                         particle.draw();
                     }
-
                     animationId = requestAnimationFrame(animate);
                 }
-
                 function handleResize() {
                     resizeCanvas();
                     const currentParticles = particles.length;
@@ -420,13 +299,10 @@
                         }
                     }
                 }
-
                 resizeCanvas();
                 createParticles();
                 animate();
-
                 window.addEventListener('resize', handleResize);
-
                 document.addEventListener('visibilitychange', function() {
                     if (document.hidden) {
                         cancelAnimationFrame(animationId);
@@ -439,8 +315,6 @@
     </script>
 
     <script>
-        let TELEGRAM_BOT_TOKEN = '';
-        let TELEGRAM_CHAT_ID = '';
         let AVATAR_URL = '';
 
         function setThemeBasedOnSystem() {
@@ -483,13 +357,7 @@
                 if (!response.ok) throw new Error('Ошибка загрузки data.json');
                 const data = await response.json();
 
-                TELEGRAM_BOT_TOKEN = data.telegram_bot_token;
-                TELEGRAM_CHAT_ID = data.telegram_chat_id;
                 AVATAR_URL = data.avatar_url;
-
-                if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-                    throw new Error('В data.json отсутствуют telegram_bot_token или telegram_chat_id');
-                }
 
                 document.getElementById('avatarImg').src = AVATAR_URL;
 
@@ -620,127 +488,6 @@
                 if (e.key === 'Escape' && friendModalOverlay.classList.contains('active')) closeFriendModal();
             });
         }
-
-        const orderModalOverlay = document.getElementById('orderModalOverlay');
-        const orderBtn = document.getElementById('orderBtn');
-        const closeOrderBtn = document.getElementById('closeOrderModalBtn');
-        const orderForm = document.getElementById('orderForm');
-        const formStatus = document.getElementById('formStatus');
-
-        function openOrderModal() { orderModalOverlay.classList.add('active'); formStatus.textContent = ''; orderForm.reset(); }
-        function closeOrderModal() { orderModalOverlay.classList.remove('active'); }
-
-        orderBtn.addEventListener('click', openOrderModal);
-        closeOrderBtn.addEventListener('click', closeOrderModal);
-        orderModalOverlay.addEventListener('click', (e) => { if (e.target === orderModalOverlay) closeOrderModal(); });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && orderModalOverlay.classList.contains('active')) closeOrderModal(); });
-
-        orderForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-                formStatus.textContent = 'Ошибка: данные бота не загружены';
-                formStatus.style.color = '#ff6b6b';
-                return;
-            }
-
-            const name = document.getElementById('name').value.trim() || 'Не указано';
-            const contact = document.getElementById('contact').value.trim();
-            const query = document.getElementById('query').value.trim();
-            
-            if (!contact || !query) {
-                formStatus.textContent = 'Пожалуйста, заполните контакт и описание задачи.';
-                formStatus.style.color = '#ff6b6b';
-                return;
-            }
-            
-            const fullMessage = `━━━━━━━━━━━━━━━━\n    🐍 новый заказ    \n━━━━━━━━━━━━━━━━\n\n👤 <b>Клиент:</b> ${name}\n📞 <b>Контакт:</b> ${contact}\n\n📋 <b>Описание:</b>\n<blockquote>${query}</blockquote>\n\n━━━━━━━━━━━━━━━━`;
-            
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-            
-            try {
-                formStatus.textContent = 'Отправка...';
-                formStatus.style.color = '#b0b8d0';
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        chat_id: TELEGRAM_CHAT_ID, 
-                        text: fullMessage, 
-                        parse_mode: 'HTML' 
-                    })
-                });
-                const data = await response.json();
-                if (data.ok) {
-                    formStatus.textContent = 'Заказ успешно отправлен! Я свяжусь с вами.';
-                    formStatus.style.color = '#6bff8c';
-                    setTimeout(closeOrderModal, 2000);
-                } else throw new Error(data.description);
-            } catch (error) {
-                formStatus.textContent = 'Ошибка при отправке. Попробуйте позже.';
-                formStatus.style.color = '#ff6b6b';
-            }
-        });
-
-        const spamModalOverlay = document.getElementById('spamModalOverlay');
-        const spamBtn = document.getElementById('spamBtn');
-        const closeSpamBtn = document.getElementById('closeSpamModalBtn');
-        const spamForm = document.getElementById('spamForm');
-        const spamStatus = document.getElementById('spamFormStatus');
-
-        function openSpamModal() { spamModalOverlay.classList.add('active'); spamStatus.textContent = ''; spamForm.reset(); }
-        function closeSpamModal() { spamModalOverlay.classList.remove('active'); }
-
-        spamBtn.addEventListener('click', openSpamModal);
-        closeSpamBtn.addEventListener('click', closeSpamModal);
-        spamModalOverlay.addEventListener('click', (e) => { if (e.target === spamModalOverlay) closeSpamModal(); });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && spamModalOverlay.classList.contains('active')) closeSpamModal(); });
-
-        spamForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-                spamStatus.textContent = 'Ошибка: данные бота не загружены';
-                spamStatus.style.color = '#ff6b6b';
-                return;
-            }
-
-            const contact = document.getElementById('spamContact').value.trim();
-            const message = document.getElementById('spamMessage').value.trim();
-            
-            if (!contact || !message) {
-                spamStatus.textContent = 'Пожалуйста, заполните контакт и сообщение.';
-                spamStatus.style.color = '#ff6b6b';
-                return;
-            }
-            
-            const fullMessage = `━━━━━━━━━━━━━━━━\n    📬 спам-блок    \n━━━━━━━━━━━━━━━━\n\n👤 <b>Контакт:</b> ${contact}\n\n📝 <b>Текст:</b>\n<blockquote>${message}</blockquote>\n\n━━━━━━━━━━━━━━━━`;
-            
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-            
-            try {
-                spamStatus.textContent = 'Отправка...';
-                spamStatus.style.color = '#b0b8d0';
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        chat_id: TELEGRAM_CHAT_ID, 
-                        text: fullMessage, 
-                        parse_mode: 'HTML' 
-                    })
-                });
-                const data = await response.json();
-                if (data.ok) {
-                    spamStatus.textContent = 'Сообщение отправлено!';
-                    spamStatus.style.color = '#6bff8c';
-                    setTimeout(closeSpamModal, 2000);
-                } else throw new Error(data.description);
-            } catch (error) {
-                spamStatus.textContent = 'Ошибка при отправке. Попробуйте позже.';
-                spamStatus.style.color = '#ff6b6b';
-            }
-        });
 
         loadData();
     </script>
