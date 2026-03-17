@@ -53,7 +53,7 @@
         .friend-modal h3 i { color:#5064ff; }
         .friend-modal-description { color:#b0b8d0; margin-bottom:2rem; line-height:1.6; font-size:1rem; }
         .friend-modal-actions { display:flex; gap:1rem; justify-content:flex-end; }
-        .friend-modal-btn { padding:0.7rem 1.5rem; border-radius:40px; font-weight:500; cursor:pointer; transition:all 0.2s; border:none; font-family:inherit; font-size:0.95rem; }
+        .friend-modal-btn { flex:1; padding:0.7rem 1.5rem; border-radius:40px; font-weight:500; cursor:pointer; transition:all 0.2s; border:none; font-family:inherit; font-size:0.95rem; }
         .friend-modal-btn.close { background:rgba(255,255,255,0.05); color:#b0b8d0; border:1px solid rgba(255,255,255,0.1); }
         .friend-modal-btn.close:hover { background:rgba(255,255,255,0.1); color:#ffffff; }
         .friend-modal-btn.goto { background:#5064ff; color:white; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; border:1px solid #5064ff; }
@@ -87,20 +87,12 @@
         .modal h3 i { color:#5064ff; }
         .modal-description { color:#b0b8d0; margin-bottom:2rem; line-height:1.6; font-size:1rem; }
         .modal-actions { display:flex; gap:1rem; justify-content:flex-end; }
-        .modal-btn { padding:0.7rem 1.5rem; border-radius:40px; font-weight:500; cursor:pointer; transition:all 0.2s; border:none; font-family:inherit; font-size:0.95rem; }
+        .modal-btn { flex:1; padding:0.7rem 1.5rem; border-radius:40px; font-weight:500; cursor:pointer; transition:all 0.2s; border:none; font-family:inherit; font-size:0.95rem; }
         .modal-btn.close { background:rgba(255,255,255,0.05); color:#b0b8d0; border:1px solid rgba(255,255,255,0.1); }
         .modal-btn.close:hover { background:rgba(255,255,255,0.1); color:#ffffff; }
         .modal-btn.goto { background:#5064ff; color:white; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; border:1px solid #5064ff; }
         .modal-btn.goto:hover { background:#3a4fd0; transform:translateY(-2px); box-shadow:0 8px 15px -5px #5064ff; }
         .modal-btn.goto i { font-size:0.9rem; }
-        .form-group { margin-bottom:1.2rem; }
-        .form-group label { display:block; margin-bottom:0.4rem; color:#b0b8d0; font-size:0.9rem; }
-        .form-group input, .form-group textarea { width:100%; background:rgba(10,12,20,0.7); border:1px solid rgba(80,100,255,0.2); border-radius:20px; padding:0.8rem 1.2rem; color:white; font-family:inherit; font-size:1rem; outline:none; transition:border 0.2s; }
-        .form-group input:focus, .form-group textarea:focus { border-color:#5064ff; }
-        .form-group textarea { min-height:100px; resize:vertical; }
-        .submit-btn { background:#5064ff; color:white; border:none; border-radius:40px; padding:0.9rem 1.5rem; font-weight:600; cursor:pointer; transition:all 0.2s; width:100%; font-size:1rem; }
-        .submit-btn:hover { background:#3a4fd0; transform:translateY(-2px); box-shadow:0 8px 15px -5px #5064ff; }
-        .form-status { margin-top:1rem; font-size:0.9rem; text-align:center; color:#b0b8d0; }
         @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
         .scroll-animation { opacity:0; transform:translateY(30px); transition:opacity 0.8s,transform 0.8s; }
         .scroll-animation.visible { opacity:1; transform:translateY(0); }
@@ -447,7 +439,13 @@
 
             function openProjectModal(description, url) {
                 modalDescription.textContent = description;
-                gotoLink.href = url;
+                if (url && url.trim() !== '') {
+                    gotoLink.style.display = 'inline-flex';
+                    gotoLink.href = url;
+                } else {
+                    gotoLink.style.display = 'none';
+                    gotoLink.href = '#';
+                }
                 modalOverlay.classList.add('active');
             }
             function closeProjectModal() { modalOverlay.classList.remove('active'); }
@@ -471,7 +469,13 @@
             function openFriendModal(name, desc, url) {
                 friendModalName.textContent = name;
                 friendModalDescription.textContent = desc;
-                friendGotoLink.href = url;
+                if (url && url.trim() !== '') {
+                    friendGotoLink.style.display = 'inline-flex';
+                    friendGotoLink.href = url;
+                } else {
+                    friendGotoLink.style.display = 'none';
+                    friendGotoLink.href = '#';
+                }
                 friendModalOverlay.classList.add('active');
             }
             function closeFriendModal() { friendModalOverlay.classList.remove('active'); }
